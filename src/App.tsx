@@ -1,11 +1,12 @@
 import React from 'react';
 
 import useGameStateService from './services/useGameStateService'
-
+import AnimationViewer from './components/AnimationViewer'
 import './App.css';
 
 
 function App() {
+  
   const service = useGameStateService('http://localhost:3000/initialState.json');
   return (
     <div className="App">
@@ -14,13 +15,12 @@ function App() {
           {service.status === 'loading' && <div>Loading initial state...</div>}
           {service.status === 'loaded' && (
             <div>
-              <h2>{service.payload.id}</h2>
-              <ul>
-                <li>M: {service.payload.m}</li>
-                <li>N: {service.payload.n}</li>
-              </ul>
-              {/* <Grid cells={service.payload.state} /> */}
+              <h2>Mostly Happy Cells</h2>
+              
 
+              
+
+            <AnimationViewer framesPerSecond={24} initialFrameState={service.payload.state}></AnimationViewer>
             </div>
           )}
           {service.status === 'error' && <div>Error loading initial state</div>}

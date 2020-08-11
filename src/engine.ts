@@ -101,7 +101,7 @@ export function animateNextFrame(state: GridState): GridState {
 };
 
 //TODO move to handy testing module , and convert to dictionary
-function stateToEmoji(cell: CellState): String {
+export function stateToEmoji(cell: CellState): String {
     let emoji: String;
     switch (cell) {
         case CellState.DEAD: emoji = "💀"; break;
