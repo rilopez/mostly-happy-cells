@@ -15,12 +15,8 @@ function App() {
           {service.status === 'loading' && <div>Loading initial state...</div>}
           {service.status === 'loaded' && (
             <div>
-              <h2>Mostly Happy Cells</h2>
-              
-
-              
-
-            <AnimationViewer framesPerSecond={24} initialFrameState={service.payload.state}></AnimationViewer>
+              <h2>Mostly Happy Cells</h2> 
+            <AnimationViewer framesPerSecond={14} initialFrameState={service.payload.state}></AnimationViewer>
             </div>
           )}
           {service.status === 'error' && <div>Error loading initial state</div>}

@@ -1,7 +1,7 @@
 import { newCellFrom, collectNeighbors, animateNextFrame, toEmojiTextGrid, parseGridStateFromEmoji } from './engine'
 import { CellState, GridState, createGridState } from './types/GameState';
 
-test('deadCellWith', () => {
+test('cellular automata rules', () => {
     // Any dead cell with exactly three sad neighbors becomes a sad cell.
     expect(newCellFrom(CellState.DEAD, { sad: 3, happy: 0, dead: 0 })).toBe(CellState.SAD)
     // Any dead cell with exactly two sad neighbors and 1 happy neighbor becomes a sad cell.
@@ -20,8 +20,6 @@ test('deadCellWith', () => {
     expect(newCellFrom(CellState.HAPPY, { sad: 3, dead: 0, happy: 0 })).toBe(CellState.HAPPY)
     expect(newCellFrom(CellState.HAPPY, { happy: 2, dead: 0, sad: 0 })).toBe(CellState.HAPPY)
     expect(newCellFrom(CellState.HAPPY, { happy: 3, dead: 0, sad: 0 })).toBe(CellState.HAPPY)
-
-
 });
 
 
